@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-bounce.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="google0e97c5a36dad8606" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="vim," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="vim基本操作1. 游标移动   按键 说明     h 左   l 右（小写L）   j 下   k 上   w 移动到下一个单词   b 移动到上一个单词    2. 进入插入模式在普通模式下使用下面的键将进入插入模式，并可以从相应的位置开始输入    命令 说明     i 在当前光标处进行编辑   I 在行首插入   A 在行末插入   a 在光标后插入编辑   o 在当前行后插入一个新行">
+<meta name="keywords" content="vim">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vim基础操作">
+<meta property="og:url" content="http://wwb.colonp.top/2018/04/16/vim基本操作/index.html">
+<meta property="og:site_name" content="Wwb&#39;s blog">
+<meta property="og:description" content="vim基本操作1. 游标移动   按键 说明     h 左   l 右（小写L）   j 下   k 上   w 移动到下一个单词   b 移动到上一个单词    2. 进入插入模式在普通模式下使用下面的键将进入插入模式，并可以从相应的位置开始输入    命令 说明     i 在当前光标处进行编辑   I 在行首插入   A 在行末插入   a 在光标后插入编辑   o 在当前行后插入一个新行">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://img-blog.csdn.net/20180416160803587?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvbWlub19i/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180416160838573?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvbWlub19i/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180416160904370?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvbWlub19i/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180416160918399?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvbWlub19i/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:updated_time" content="2018-08-14T08:52:12.735Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vim基础操作">
+<meta name="twitter:description" content="vim基本操作1. 游标移动   按键 说明     h 左   l 右（小写L）   j 下   k 上   w 移动到下一个单词   b 移动到上一个单词    2. 进入插入模式在普通模式下使用下面的键将进入插入模式，并可以从相应的位置开始输入    命令 说明     i 在当前光标处进行编辑   I 在行首插入   A 在行末插入   a 在光标后插入编辑   o 在当前行后插入一个新行">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20180416160803587?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvbWlub19i/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://wwb.colonp.top/2018/04/16/vim基本操作/"/>
+
+
+
+
+
+  <title>vim基础操作 | Wwb's blog</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-123886488-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f79a03d936d4ebb46a18c7be00bc054c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wwb's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wwb.colonp.top/2018/04/16/vim基本操作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wwb">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wwb's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">vim基础操作</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-16T16:11:50+08:00">
+                2018-04-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/16/vim基本操作/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/04/16/vim基本操作/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/04/16/vim基本操作/" class="leancloud_visitors" data-flag-title="vim基础操作">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h1><h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><h3 id="1-游标移动"><a href="#1-游标移动" class="headerlink" title="1. 游标移动"></a>1. 游标移动</h3><table>
+<thead>
+<tr>
+<th>按键</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>h</code></td>
+<td>左</td>
+</tr>
+<tr>
+<td><code>l</code></td>
+<td>右（小写L）</td>
+</tr>
+<tr>
+<td><code>j</code></td>
+<td>下</td>
+</tr>
+<tr>
+<td><code>k</code></td>
+<td>上</td>
+</tr>
+<tr>
+<td><code>w</code></td>
+<td>移动到下一个单词</td>
+</tr>
+<tr>
+<td><code>b</code></td>
+<td>移动到上一个单词</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-进入插入模式"><a href="#2-进入插入模式" class="headerlink" title="2. 进入插入模式"></a>2. 进入插入模式</h3><p>在普通模式下使用下面的键将进入插入模式，并可以从相应的位置开始输入</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>i</code></td>
+<td>在当前光标处进行编辑</td>
+</tr>
+<tr>
+<td><code>I</code></td>
+<td>在行首插入</td>
+</tr>
+<tr>
+<td><code>A</code></td>
+<td>在行末插入</td>
+</tr>
+<tr>
+<td><code>a</code></td>
+<td>在光标后插入编辑</td>
+</tr>
+<tr>
+<td><code>o</code></td>
+<td>在当前行后插入一个新行</td>
+</tr>
+<tr>
+<td><code>O</code></td>
+<td>在当前行前插入一个新行</td>
+</tr>
+<tr>
+<td><code>cw</code></td>
+<td>替换从光标所在位置后到一个单词结尾的字符</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-保存文档"><a href="#3-保存文档" class="headerlink" title="3. 保存文档"></a>3. 保存文档</h3><p>从普通模式输入:进入命令行模式，输入w回车，保存文档。输入:w 文件名可以将文档另存为其他文件名或存到其它路径下</p>
+<h3 id="4-退出vim"><a href="#4-退出vim" class="headerlink" title="4. 退出vim"></a>4. 退出vim</h3><p>从普通模式输入<code>:</code>进入命令行模式，输入<code>wq</code>回车，保存并退出编辑</p>
+<p>以下为其它几种退出方式：</p>
+<p><img src="https://img-blog.csdn.net/20180416160803587?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvbWlub19i/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="退出方式"></p>
+<h3 id="5-删除文本"><a href="#5-删除文本" class="headerlink" title="5. 删除文本"></a>5. 删除文本</h3><p>进入普通模式，使用下列命令可以进行文本快速删除：</p>
+<p><img src="https://img-blog.csdn.net/20180416160838573?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvbWlub19i/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="文本快速删除"></p>
+<p>除此之外，你还可以在命令之前加上数字，表示一次删除多行，如：  <code>2dd</code>表示一次删除2行</p>
+<h3 id="6-vim重复命令"><a href="#6-vim重复命令" class="headerlink" title="6. vim重复命令"></a>6. vim重复命令</h3><h4 id="6-1-重复执行上次命令"><a href="#6-1-重复执行上次命令" class="headerlink" title="6.1 重复执行上次命令"></a>6.1 重复执行上次命令</h4><p>在普通模式下<code>.</code>(小数点)表示重复上一次的命令操作</p>
+<h4 id="6-2-执行指定次数相同的命令"><a href="#6-2-执行指定次数相同的命令" class="headerlink" title="6.2 执行指定次数相同的命令"></a>6.2 执行指定次数相同的命令</h4><p>进入普通模式输入<code>N&lt;command&gt;</code>，N表示重复后面的次数。</p>
+<h3 id="7-游标的快速跳转"><a href="#7-游标的快速跳转" class="headerlink" title="7. 游标的快速跳转"></a>7. 游标的快速跳转</h3><p>普通模式下，下列命令可以让光标快速调转到指定位置，我们分别讨论快速实现行间跳转和行内跳转</p>
+<h4 id="7-1-行间跳转"><a href="#7-1-行间跳转" class="headerlink" title="7.1 行间跳转"></a>7.1 行间跳转</h4><p><img src="https://img-blog.csdn.net/20180416160904370?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvbWlub19i/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p>在完成依次跳转后，可以使用Ctrl+o快速回到上一次(跳转前)光标所在位置</p>
+<h4 id="7-2-行内跳转"><a href="#7-2-行内跳转" class="headerlink" title="7.2 行内跳转"></a>7.2 行内跳转</h4><p>普通模式下使用下列命令在行内按照单词为单位进行跳转</p>
+<p><img src="https://img-blog.csdn.net/20180416160918399?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RvbWlub19i/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<ul>
+<li>在普通模式下，任意跳转到一行，使用w跳转到一个单词的开头，然后使用dw删除这个单词</li>
+<li>在普通模式下，使用e跳转到一个单词的结尾，并使用~将游标所在字母变成大写或小写</li>
+</ul>
+<h3 id="8-复制粘贴和剪切"><a href="#8-复制粘贴和剪切" class="headerlink" title="8. 复制粘贴和剪切"></a>8. 复制粘贴和剪切</h3><h4 id="8-1-复制及粘贴文本"><a href="#8-1-复制及粘贴文本" class="headerlink" title="8.1 复制及粘贴文本"></a>8.1 复制及粘贴文本</h4><ul>
+<li><p>普通模式中使用<code>y</code>复制</p>
+<ul>
+<li>普通模式中，<code>yy</code>复制游标所在的整行（<code>3yy</code>表示复制3行） </li>
+<li>普通模式中，<code>y^</code> 复制至行首，或<code>y0</code>。不含光标所在处字符。 </li>
+<li>普通模式中，<code>y$</code> 复制至行尾。含光标所在处字符。 </li>
+<li>普通模式中，<code>yw</code> 复制一个单词。 </li>
+<li>普通模式中，<code>y2w</code>复制两个单词。 </li>
+<li>普通模式中，<code>yG</code> 复制至文本末。 </li>
+<li>普通模式中，<code>y1G</code>复制至文本开头。</li>
+</ul>
+</li>
+<li><p>普通模式中使用<code>p</code>粘贴</p>
+<ul>
+<li>普通模式中，<code>p</code>(小写)代表粘贴至光标后（下）</li>
+<li>普通模式中，<code>P</code>(大写)代表粘贴至光标前（上）</li>
+</ul>
+</li>
+</ul>
+<h4 id="8-2-剪切及粘贴"><a href="#8-2-剪切及粘贴" class="headerlink" title="8.2 剪切及粘贴"></a>8.2 剪切及粘贴</h4><p>其实前面讲得<code>dd</code>删除命令就是剪切，你每次<code>dd</code>删除文档内容后，便可以使用<code>p</code>来粘贴，也这一点可以让我们实现一个很爽快的功能——交换上下行： </p>
+<p><code>ddp</code>,就这么简单，即实现了快速交换光标所在行与它下面的行</p>
+<hr>
+<p>学习自实验楼 <a href="https://www.shiyanlou.com/" target="_blank" rel="noopener">https://www.shiyanlou.com/</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>请作者喝一杯咖啡</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Wwb WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vim/" rel="tag"><i class="fa fa-tag"></i> vim</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/30/node-mysql中防止SQL注入/" rel="next" title="node-mysql中防止SQL注入">
+                <i class="fa fa-chevron-left"></i> node-mysql中防止SQL注入
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/17/Java基础/" rel="prev" title="Java入门基础">
+                Java入门基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Wwb" />
+          <p class="site-author-name" itemprop="name">Wwb</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SoulWwb" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:wwb159874@163.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                    
+                      E-Mail
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://steamcommunity.com/profiles/76561198105266433/" target="_blank" title="Steam">
+                  
+                    <i class="fa fa-fw fa-steam-square"></i>
+                  
+                    
+                      Steam
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://wwb.colonp.top" title="博客主站" target="_blank">博客主站</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://blog.csdn.net/Domino_b" title="CSDN博客" target="_blank">CSDN博客</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://soulwwb.github.io" title="GitHub.io" target="_blank">GitHub.io</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vim"><span class="nav-number">1.</span> <span class="nav-text">vim</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本操作"><span class="nav-number">1.1.</span> <span class="nav-text">基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-游标移动"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 游标移动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-进入插入模式"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. 进入插入模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-保存文档"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. 保存文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-退出vim"><span class="nav-number">1.1.4.</span> <span class="nav-text">4. 退出vim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-删除文本"><span class="nav-number">1.1.5.</span> <span class="nav-text">5. 删除文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-vim重复命令"><span class="nav-number">1.1.6.</span> <span class="nav-text">6. vim重复命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-重复执行上次命令"><span class="nav-number">1.1.6.1.</span> <span class="nav-text">6.1 重复执行上次命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-执行指定次数相同的命令"><span class="nav-number">1.1.6.2.</span> <span class="nav-text">6.2 执行指定次数相同的命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-游标的快速跳转"><span class="nav-number">1.1.7.</span> <span class="nav-text">7. 游标的快速跳转</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-行间跳转"><span class="nav-number">1.1.7.1.</span> <span class="nav-text">7.1 行间跳转</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-行内跳转"><span class="nav-number">1.1.7.2.</span> <span class="nav-text">7.2 行内跳转</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-复制粘贴和剪切"><span class="nav-number">1.1.8.</span> <span class="nav-text">8. 复制粘贴和剪切</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#8-1-复制及粘贴文本"><span class="nav-number">1.1.8.1.</span> <span class="nav-text">8.1 复制及粘贴文本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-2-剪切及粘贴"><span class="nav-number">1.1.8.2.</span> <span class="nav-text">8.2 剪切及粘贴</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-wwb"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wwb</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      本站访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      本站总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://wwb-blog.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://wwb.colonp.top/2018/04/16/vim基本操作/';
+          this.page.identifier = '2018/04/16/vim基本操作/';
+          this.page.title = 'vim基础操作';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://wwb-blog.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("cjPpttlbB3KD8kuS4VqOqGLB-gzGzoHsz", "bkPG0LjJgtXqHfVj4LU6vJQz");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
